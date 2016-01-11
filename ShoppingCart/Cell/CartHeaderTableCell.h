@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CartHeaderCell.h
 //  ShoppingCart
 //
 //  Created by ccguo on 16/1/11.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface CartHeaderTableCell : UITableViewCell
 
 @end
-

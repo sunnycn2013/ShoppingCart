@@ -1,0 +1,15 @@
+//
+//  ShoppingCart.pch
+//  ShoppingCart
+//
+//  Created by ccguo on 16/1/11.
+//  Copyright © 2016年 ccguo. All rights reserved.
+//
+
+#ifndef ShoppingCart_pch
+#define ShoppingCart_pch
+
+#define SCREEN_WIDTH    [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT   [UIScreen mainScreen].bounds.size.height
+
+#endif /* ShoppingCart_pch */
