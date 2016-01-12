@@ -11,11 +11,13 @@
 @interface CartSkuModel : NSObject
 
 @property (nonatomic,strong) NSString * title;
-@property (nonatomic,strong) NSString * description;
+@property (nonatomic,strong) NSString * descriptions;
 @property (nonatomic,strong) NSString * price;
 @property (nonatomic,strong) NSNumber * number;
 @property (nonatomic,strong) NSNumber * isPhoneSp; //手机专享
 @property (nonatomic,strong) NSString * image;
-@property (nonatomic,assign) BOOL isSelected;
+@property (nonatomic,assign) NSNumber *isSelected;
+
+- (instancetype)initWithDic:(NSDictionary *)dic;
 
 @end

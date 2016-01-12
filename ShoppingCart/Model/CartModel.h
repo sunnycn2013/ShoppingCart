@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CartProtocol.h"
 
-@interface CartModel : NSObject
+@interface CartModel : NSObject<CartFloorProtocol>
+
+- (instancetype)initWithDic:(NSDictionary *)dic;
 
 @end

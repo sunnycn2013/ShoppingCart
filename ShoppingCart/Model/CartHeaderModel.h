@@ -10,7 +10,9 @@
 
 @interface CartHeaderModel : NSObject
 
-@property (nonatomic,assign) BOOL isSelected;
+@property (nonatomic,strong) NSNumber *isSelected;
 @property (nonatomic,strong) NSString *title;
+
+- (instancetype)initWithDic:(NSDictionary *)dic;
 
 @end

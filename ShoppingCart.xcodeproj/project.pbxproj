@@ -22,6 +22,7 @@
 		B019150C1C43FADF00C058A1 /* CartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B019150B1C43FADF00C058A1 /* CartModel.m */; };
 		B019150F1C43FB6300C058A1 /* CartHeaderTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B019150E1C43FB6300C058A1 /* CartHeaderTableCell.m */; };
 		B01915121C43FBC800C058A1 /* CartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B01915111C43FBC800C058A1 /* CartTableViewCell.m */; };
+		B0F67AC61C453D5200673009 /* cart.geojson in Resources */ = {isa = PBXBuildFile; fileRef = B0F67AC51C453D5200673009 /* cart.geojson */; };
 		B6732CD56A7FDB3EB913C2E7 /* libPods-ShoppingCart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3679BB57CA7D4C0A8AEAFA /* libPods-ShoppingCart.a */; };
 /* End PBXBuildFile section */
 
@@ -34,9 +35,6 @@
 		37E3B4591C44F3900048A9B7 /* CartSkuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartSkuModel.m; sourceTree = "<group>"; };
 		37E3B45B1C44F3A70048A9B7 /* CartHeaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartHeaderModel.h; sourceTree = "<group>"; };
 		37E3B45C1C44F3A70048A9B7 /* CartHeaderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartHeaderModel.m; sourceTree = "<group>"; };
-		37E3B45F1C45070C0048A9B7 /* CartFloorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartFloorProtocol.h; sourceTree = "<group>"; };
-		37E3B4601C4507240048A9B7 /* CartRenderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartRenderProtocol.h; sourceTree = "<group>"; };
-		37E3B4611C45073F0048A9B7 /* CartActionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartActionProtocol.h; sourceTree = "<group>"; };
 		37E3B4631C45095D0048A9B7 /* CartFloorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartFloorModel.h; sourceTree = "<group>"; };
 		37E3B4641C45095D0048A9B7 /* CartFloorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartFloorModel.m; sourceTree = "<group>"; };
 		736A183FCB8D22E2FF350A21 /* Pods-ShoppingCart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCart.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShoppingCart/Pods-ShoppingCart.release.xcconfig"; sourceTree = "<group>"; };
@@ -61,6 +59,8 @@
 		B019150E1C43FB6300C058A1 /* CartHeaderTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartHeaderTableCell.m; sourceTree = "<group>"; };
 		B01915101C43FBC800C058A1 /* CartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartTableViewCell.h; sourceTree = "<group>"; };
 		B01915111C43FBC800C058A1 /* CartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartTableViewCell.m; sourceTree = "<group>"; };
+		B02F45A31C45503800391D5B /* CartProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartProtocol.h; sourceTree = "<group>"; };
+		B0F67AC51C453D5200673009 /* cart.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cart.geojson; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,9 +102,7 @@
 		37E3B45E1C45055D0048A9B7 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				37E3B45F1C45070C0048A9B7 /* CartFloorProtocol.h */,
-				37E3B4601C4507240048A9B7 /* CartRenderProtocol.h */,
-				37E3B4611C45073F0048A9B7 /* CartActionProtocol.h */,
+				B02F45A31C45503800391D5B /* CartProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -153,6 +151,7 @@
 				B01914F91C43EA5D00C058A1 /* LaunchScreen.storyboard */,
 				B01914FC1C43EA5D00C058A1 /* Info.plist */,
 				B01914EB1C43EA5D00C058A1 /* Supporting Files */,
+				B0F67AC51C453D5200673009 /* cart.geojson */,
 			);
 			path = ShoppingCart;
 			sourceTree = "<group>";
@@ -273,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B01914FB1C43EA5D00C058A1 /* LaunchScreen.storyboard in Resources */,
+				B0F67AC61C453D5200673009 /* cart.geojson in Resources */,
 				B01914F81C43EA5D00C058A1 /* Assets.xcassets in Resources */,
 				B01914F61C43EA5D00C058A1 /* Main.storyboard in Resources */,
 			);
@@ -406,7 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -444,7 +444,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -459,6 +459,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ShoppingCart/ShoppingCart.pch";
 				INFOPLIST_FILE = ShoppingCart/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.360buy.ShoppingCart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -472,6 +473,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ShoppingCart/ShoppingCart.pch";
 				INFOPLIST_FILE = ShoppingCart/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.360buy.ShoppingCart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
