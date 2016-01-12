@@ -19,6 +19,16 @@
 @end
 
 @implementation CartViewModel
+- (void)fetchProduct
+{
+    _fetchCartApi = [[CartAPI alloc] initWithActionType:kCartActionTypeFetch CartID:0];
+    [_fetchCartApi startWithCompletionBlockWithSuccess:^(NSDictionary *content){
+    
+     }
+     failure:^(NSError *error){
+                                               
+    }];
+}
 
 - (void)deleteProductWithSku:(NSString *)skuNum
 {
