@@ -22,14 +22,6 @@
 @implementation CartViewModel
 
 #pragma mark - Private Method
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        _list = [NSMutableArray array];
-    }
-    return self;
-}
 
 #pragma mark - API Method
 
