@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol CartFloorProtocol;
 @protocol CartRenderProtocol;
-
 @interface UITableView (tableViewCell)
 
 - (void)registTableViewCell;
 
-- (nullable __kindof UITableViewCell *)dequeueReusableCellWithModel:(id<CartRenderProtocol>)model;
+- (UITableViewCell *)dequeueReusableCellWithModel:(id<CartRenderProtocol>)model;
+- (UITableViewCell *)dequeueReusableCellWithModel:(id<CartFloorProtocol>)model indexPath:(NSIndexPath *)indexPath;
 
 @end

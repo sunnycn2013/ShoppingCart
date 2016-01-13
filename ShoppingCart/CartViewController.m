@@ -34,7 +34,7 @@
 - (void)initUI
 {
     [self.view addSubview:self.tablView];
-    [self setHeader];
+//    [self setHeader];
     [self setObserver];
     [self.tablView registTableViewCell];
 
@@ -84,17 +84,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell *cell = nil;
     id<CartFloorProtocol> floor = self.cartViewModel.list[indexPath.section];
-    id<CartRenderProtocol> renderModel = [floor cartModelForRowIndexPath:indexPath];
-    UITableViewCell<CartProbeProtocol> *cell = nil;
-    cell = [tableView dequeueReusableCellWithModel:renderModel];
-    [cell processData:renderModel];
+    cell = [tableView dequeueReusableCellWithModel:floor indexPath:indexPath];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"willDisplayCell");
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 25)];
+    view.backgroundColor = [UIColor lightGrayColor];
+    return view;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -105,9 +110,9 @@
     return [cellClass calculateSizeWithData:renderModel];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 44;
+    return 15.0;
 }
 
 #pragma mark - set get method
@@ -118,6 +123,8 @@
         _tablView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
         _tablView.delegate = self;
         _tablView.dataSource = self;
+        _tablView.sectionFooterHeight = 0.0;
+        _tablView.sectionHeaderHeight = 0;
     }
     return _tablView;
 }

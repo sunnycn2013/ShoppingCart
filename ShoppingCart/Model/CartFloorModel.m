@@ -51,7 +51,7 @@
         return self.headerModel;
     }
     if (self.headerModel && index < [self numberOfModelInFloor]) {
-        return self.list[index];
+        return self.list[index - 1];
     }
     return nil;
 }
@@ -62,7 +62,7 @@
         return self.headerModel;
     }
     if (self.headerModel && index < [self numberOfModelInFloor]) {
-        return self.list[index];
+        return self.list[index - 1];
     }
     return nil;
 }

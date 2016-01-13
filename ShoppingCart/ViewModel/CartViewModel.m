@@ -33,7 +33,7 @@
         NSDictionary *dic = [weakself mockDataFromlocal];
         NSArray *array = JSON_PARSE(dic[@"content"], [NSArray class]);
         
-        NSMutableArray *listArray = [NSMutableArray array];
+        NSMutableArray<CartFloorProtocol> *listArray = [NSMutableArray<CartFloorProtocol> array];
         for (NSDictionary *dic in array) {
             @autoreleasepool {
                 CartFloorModel *floor = [[CartFloorModel alloc] initWithDic:dic];

@@ -8,6 +8,8 @@
 
 #import "CartViewController+TableView.h"
 #import "CartRenderProtocol.h"
+#import "CartFloorProtocol.h"
+#import "CartProbeProtocol.h"
 
 @implementation UITableView (tableViewCell)
 
@@ -26,12 +28,22 @@
     }
 }
 
-- (nullable __kindof UITableViewCell *)dequeueReusableCellWithModel:(id<CartRenderProtocol>)model
+- (UITableViewCell *)dequeueReusableCellWithModel:(id<CartRenderProtocol>)model
 {
     UITableViewCell *cell  = nil;
     NSString *cellIdentifier = [model cellIdentifier];
     cell = [self dequeueReusableCellWithIdentifier:cellIdentifier];
     return cell;
 }
+
+- (UITableViewCell *)dequeueReusableCellWithModel:(id<CartFloorProtocol>)model indexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = nil;
+    id<CartRenderProtocol> renderModel = [model cartModelForRowIndexPath:indexPath];
+    cell = [self dequeueReusableCellWithModel:renderModel];
+    [(id<CartProbeProtocol>)cell processData:renderModel];
+    return cell;
+}
+
 
 @end
