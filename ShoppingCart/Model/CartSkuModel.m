@@ -28,4 +28,10 @@
     self.image       = JSON_PARSE(dic[@"image"], [NSString class]);
     self.isSelected  = JSON_PARSE(dic[@"isSelected"], [NSNumber class]);
 }
+
+- (NSString *)cellIdentifier
+{
+    return @"CartTableViewCell";
+}
+
 @end

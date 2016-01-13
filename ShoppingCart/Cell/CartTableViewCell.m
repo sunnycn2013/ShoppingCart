@@ -8,16 +8,45 @@
 
 #import "CartTableViewCell.h"
 
+
+@interface CartTableViewCell ()
+
+@property (nonatomic,strong) UIImageView *titleImage;
+@property (nonatomic,strong) UILabel *titleLabel;
+@property (nonatomic,strong) UILabel *desLabel;
+@property (nonatomic,strong) UILabel *numberLabel;
+@property (nonatomic,strong) UILabel *priceLabel;
+
+@end
 @implementation CartTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        [self setUI];
+    }
+    return  self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+- (void)setUI
+{
+    _titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 150, 150)];
+    [self.contentView addSubview:_titleImage];
+    
+    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 200, 40)];
+    _titleLabel.text = @"京东自营";
+    [self.contentView addSubview:_titleLabel];
+}
+#pragma mark - CartProbeProtocol
 
-    // Configure the view for the selected state
++ (CGFloat)calculateSizeWithData:(id<CartRenderProtocol>)data
+{
+    return 140;
 }
 
+- (void)processData:(id<CartRenderProtocol>)data
+{
+    
+}
 @end

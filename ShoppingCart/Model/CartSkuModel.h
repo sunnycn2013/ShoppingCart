@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CartRenderProtocol.h"
 
-@interface CartSkuModel : NSObject
+@interface CartSkuModel : NSObject<CartRenderProtocol>
 
 @property (nonatomic,strong) NSString * title;
 @property (nonatomic,strong) NSString * descriptions;

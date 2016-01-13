@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37B9E0811C4653F200579692 /* CartViewController+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B9E0801C4653F200579692 /* CartViewController+TableView.m */; };
 		37E3B4531C44DFD70048A9B7 /* CartAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B4521C44DFD70048A9B7 /* CartAPI.m */; };
 		37E3B4561C44E1C90048A9B7 /* BaseAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B4551C44E1C90048A9B7 /* BaseAPI.m */; };
 		37E3B45A1C44F3900048A9B7 /* CartSkuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3B4591C44F3900048A9B7 /* CartSkuModel.m */; };
@@ -19,7 +20,6 @@
 		B01914F81C43EA5D00C058A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B01914F71C43EA5D00C058A1 /* Assets.xcassets */; };
 		B01914FB1C43EA5D00C058A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B01914F91C43EA5D00C058A1 /* LaunchScreen.storyboard */; };
 		B01915091C43FAC300C058A1 /* CartViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B01915081C43FAC300C058A1 /* CartViewModel.m */; };
-		B019150C1C43FADF00C058A1 /* CartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B019150B1C43FADF00C058A1 /* CartModel.m */; };
 		B019150F1C43FB6300C058A1 /* CartHeaderTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B019150E1C43FB6300C058A1 /* CartHeaderTableCell.m */; };
 		B01915121C43FBC800C058A1 /* CartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B01915111C43FBC800C058A1 /* CartTableViewCell.m */; };
 		B0F67AC61C453D5200673009 /* cart.geojson in Resources */ = {isa = PBXBuildFile; fileRef = B0F67AC51C453D5200673009 /* cart.geojson */; };
@@ -27,6 +27,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		379C2FF61C45EFE5007B2F37 /* CartRenderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartRenderProtocol.h; sourceTree = "<group>"; };
+		379C2FF71C45EFF7007B2F37 /* CartFloorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartFloorProtocol.h; sourceTree = "<group>"; };
+		37B9E07E1C46155700579692 /* CartProbeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartProbeProtocol.h; sourceTree = "<group>"; };
+		37B9E07F1C4653F200579692 /* CartViewController+TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CartViewController+TableView.h"; sourceTree = "<group>"; };
+		37B9E0801C4653F200579692 /* CartViewController+TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CartViewController+TableView.m"; sourceTree = "<group>"; };
 		37E3B4511C44DFD70048A9B7 /* CartAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartAPI.h; sourceTree = "<group>"; };
 		37E3B4521C44DFD70048A9B7 /* CartAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartAPI.m; sourceTree = "<group>"; };
 		37E3B4541C44E1C90048A9B7 /* BaseAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAPI.h; sourceTree = "<group>"; };
@@ -53,13 +58,10 @@
 		B01915021C43EF9D00C058A1 /* ShoppingCart.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCart.pch; sourceTree = "<group>"; };
 		B01915071C43FAC300C058A1 /* CartViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartViewModel.h; sourceTree = "<group>"; };
 		B01915081C43FAC300C058A1 /* CartViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartViewModel.m; sourceTree = "<group>"; };
-		B019150A1C43FADF00C058A1 /* CartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartModel.h; sourceTree = "<group>"; };
-		B019150B1C43FADF00C058A1 /* CartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartModel.m; sourceTree = "<group>"; };
 		B019150D1C43FB6300C058A1 /* CartHeaderTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartHeaderTableCell.h; sourceTree = "<group>"; };
 		B019150E1C43FB6300C058A1 /* CartHeaderTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartHeaderTableCell.m; sourceTree = "<group>"; };
 		B01915101C43FBC800C058A1 /* CartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartTableViewCell.h; sourceTree = "<group>"; };
 		B01915111C43FBC800C058A1 /* CartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartTableViewCell.m; sourceTree = "<group>"; };
-		B02F45A31C45503800391D5B /* CartProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartProtocol.h; sourceTree = "<group>"; };
 		B0F67AC51C453D5200673009 /* cart.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cart.geojson; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,7 +104,9 @@
 		37E3B45E1C45055D0048A9B7 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				B02F45A31C45503800391D5B /* CartProtocol.h */,
+				37B9E07E1C46155700579692 /* CartProbeProtocol.h */,
+				379C2FF61C45EFE5007B2F37 /* CartRenderProtocol.h */,
+				379C2FF71C45EFF7007B2F37 /* CartFloorProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -152,6 +156,8 @@
 				B01914FC1C43EA5D00C058A1 /* Info.plist */,
 				B01914EB1C43EA5D00C058A1 /* Supporting Files */,
 				B0F67AC51C453D5200673009 /* cart.geojson */,
+				37B9E07F1C4653F200579692 /* CartViewController+TableView.h */,
+				37B9E0801C4653F200579692 /* CartViewController+TableView.m */,
 			);
 			path = ShoppingCart;
 			sourceTree = "<group>";
@@ -180,8 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				37E3B4571C44F3630048A9B7 /* Cart */,
-				B019150A1C43FADF00C058A1 /* CartModel.h */,
-				B019150B1C43FADF00C058A1 /* CartModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,8 +341,8 @@
 				B019150F1C43FB6300C058A1 /* CartHeaderTableCell.m in Sources */,
 				B01915091C43FAC300C058A1 /* CartViewModel.m in Sources */,
 				B01914F31C43EA5D00C058A1 /* CartViewController.m in Sources */,
+				37B9E0811C4653F200579692 /* CartViewController+TableView.m in Sources */,
 				37E3B4651C45095D0048A9B7 /* CartFloorModel.m in Sources */,
-				B019150C1C43FADF00C058A1 /* CartModel.m in Sources */,
 				B01915121C43FBC800C058A1 /* CartTableViewCell.m in Sources */,
 				B01914F01C43EA5D00C058A1 /* AppDelegate.m in Sources */,
 				37E3B4561C44E1C90048A9B7 /* BaseAPI.m in Sources */,

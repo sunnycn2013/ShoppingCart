@@ -29,7 +29,7 @@
 
 - (NSDictionary *)params
 {
-    return @{};
+    return @{@"key1":@"val1"};
 }
 
 - (void)startWithCompletionBlockWithSuccess:(void (^)(NSDictionary *content))success
@@ -37,6 +37,7 @@
 {
     self.successBlock = success;
     self.failureBlock = failure;
+    [self start];
 }
 
 - (void)start
@@ -47,9 +48,10 @@
                   NSError *error = nil;
                   NSDictionary *contents = [NSJSONSerialization JSONObjectWithData:responseObject
                                                                            options:NSJSONReadingMutableLeaves
-                                                                             error:&error];
+                                                                            error:&error];
+                  
                   if (_successBlock) {
-                      _successBlock(contents);
+                      _successBlock(@{@"content":@"1"});
                   }
               }
               failure:^(NSURLSessionDataTask *task, NSError *error){
@@ -69,6 +71,13 @@
 {
     if (!_manager) {
         _manager = [AFHTTPSessionManager manager];
+        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",
+                                                                            @"application/json",
+                                                                                   @"text/json",
+                                                                             @"text/javascript",
+                                                              nil];//设置相应内容类型
+        _manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        _manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     }
     return _manager;
 }

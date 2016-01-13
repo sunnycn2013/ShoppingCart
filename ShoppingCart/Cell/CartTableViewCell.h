@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CartProbeProtocol.h"
 
-@interface CartTableViewCell : UITableViewCell
+@interface CartTableViewCell : UITableViewCell<CartProbeProtocol>
 
 @end

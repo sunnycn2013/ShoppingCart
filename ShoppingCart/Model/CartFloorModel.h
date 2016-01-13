@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "CartSkuModel.h"
 #import "CartHeaderModel.h"
-#import "CartModel.h"
+#import "CartFloorProtocol.h"
 
-@interface CartFloorModel : CartModel
+@interface CartFloorModel : NSObject
 
 @property (nonatomic,strong) NSMutableArray<CartSkuModel *> *list;
 @property (nonatomic,strong) CartHeaderModel *headerModel;

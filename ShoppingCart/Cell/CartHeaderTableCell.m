@@ -8,16 +8,39 @@
 
 #import "CartHeaderTableCell.h"
 
+@interface CartHeaderTableCell ()
+
+@property (nonatomic,strong) UILabel *titleLabel;
+@end
 @implementation CartHeaderTableCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        [self setUI];
+    }
+    return  self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)setUI
+{
+    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 200, 40)];
+    _titleLabel.text = @"京东自营";
+    [self.contentView addSubview:_titleLabel];
 }
+
+#pragma mark - CartProbeProtocol
+
++ (CGFloat)calculateSizeWithData:(id<CartRenderProtocol>)data
+{
+    return 40;
+}
+
+- (void)processData:(id<CartRenderProtocol>)data
+{
+    
+}
+
 
 @end

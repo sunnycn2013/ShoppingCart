@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CartRenderProtocol.h"
 
-@interface CartHeaderModel : NSObject
+@interface CartHeaderModel : NSObject<CartRenderProtocol>
 
 @property (nonatomic,strong) NSNumber *isSelected;
 @property (nonatomic,strong) NSString *title;

@@ -7,6 +7,7 @@
 //
 
 #import "CartViewModel.h"
+#import "CartFloorModel.h"
 #import "CartAPI.h"
 
 @interface CartViewModel ()
@@ -19,20 +20,52 @@
 @end
 
 @implementation CartViewModel
+
+#pragma mark - Private Method
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _list = [NSMutableArray array];
+    }
+    return self;
+}
+
+#pragma mark - API Method
+
 - (void)fetchProduct
 {
+    __weak typeof(self) weakself = self;
     _fetchCartApi = [[CartAPI alloc] initWithActionType:kCartActionTypeFetch CartID:0];
     [_fetchCartApi startWithCompletionBlockWithSuccess:^(NSDictionary *content){
-    
+        NSDictionary *dic = [weakself mockDataFromlocal];
+        NSArray *array = JSON_PARSE(dic[@"content"], [NSArray class]);
+        
+        NSMutableArray *listArray = [NSMutableArray array];
+        for (NSDictionary *dic in array) {
+            @autoreleasepool {
+                CartFloorModel *floor = [[CartFloorModel alloc] initWithDic:dic];
+                [listArray addObject:floor];
+            }
+        }
+        weakself.list = listArray;
      }
      failure:^(NSError *error){
-                                               
+         NSLog(@"failure");
     }];
 }
 
 - (void)deleteProductWithSku:(NSString *)skuNum
 {
     
+}
+
+- (NSDictionary *)mockDataFromlocal
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"cart.geojson" ofType:nil];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+    return dic;
 }
 
 @end

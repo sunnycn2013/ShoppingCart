@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CartModel.h"
+#import "CartFloorProtocol.h"
 #import "CartFloorModel.h"
 
+@protocol CartFloorProtocol;
 @interface CartViewModel : NSObject
 
-//实体Model 
-@property (nonatomic,strong) CartModel * cartModel;
+//实体Entity
+//@property (nonatomic,strong) CartFloorModel * cartModel;
+@property (nonatomic,strong) NSMutableArray<CartFloorProtocol> * list;
 
 /**
  *  从server端获取所有的购物车信息
