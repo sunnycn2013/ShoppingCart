@@ -110,6 +110,30 @@
     return [cellClass calculateSizeWithData:renderModel];
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return TRUE;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:indexPath.section];
+        [self.cartViewModel removeObjectAtIndexPath:indexPath completionBlock:^(BOOL deleteSection){
+            if (deleteSection) {
+                [_tablView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+            }else{
+                [_tablView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            }
+        }];
+        // Delete the row from the data source.
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 15.0;

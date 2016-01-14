@@ -16,5 +16,10 @@
 @property (nonatomic,strong) NSMutableArray<CartSkuModel *> *list;
 @property (nonatomic,strong) CartHeaderModel *headerModel;
 
+@property (nonatomic,assign) NSInteger count;
+
 - (instancetype)initWithDic:(NSDictionary *)dic;
+
+- (void)removeObjectAtIndexPath:(NSInteger)index;
+
 @end

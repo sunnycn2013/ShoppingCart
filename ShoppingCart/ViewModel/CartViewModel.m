@@ -52,6 +52,28 @@
     
 }
 
+- (void)removeObjectAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self removeObjectAtIndexPath:indexPath completionBlock:nil];
+}
+
+- (void)removeObjectAtIndexPath:(NSIndexPath *)indexPath completionBlock:(void (^)(BOOL deleteSection))completion
+{
+    NSInteger section = indexPath.section;
+    NSInteger index = indexPath.row;
+    [(CartFloorModel *)self.list[section] removeObjectAtIndexPath:index];
+    
+    for (NSInteger i = 0; i < self.list.count; i++) {
+        CartFloorModel *floor = self.list[i];
+        if (![floor count]) {
+            [self.list removeObjectAtIndex:i];
+            completion(YES);
+        }
+    }
+}
+
+
+
 - (NSDictionary *)mockDataFromlocal
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"cart.geojson" ofType:nil];

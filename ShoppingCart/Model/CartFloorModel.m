@@ -67,4 +67,17 @@
     return nil;
 }
 
+#pragma mark - API
+
+- (NSInteger)count
+{
+    return self.list.count;
+}
+
+- (void)removeObjectAtIndexPath:(NSInteger)index
+{
+    if (index > 0 && index < self.list.count) {
+        [self.list removeObjectAtIndex:index];
+    }
+}
 @end
