@@ -51,7 +51,7 @@ static CGFloat const CartCellHeight = 100.0;
     _titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_statusView.frame), 12, 70, 70)];
     _titleImage.layer.cornerRadius = 2;
     _titleImage.layer.borderWidth = 1;
-    _titleImage.layer.borderColor = [UIColor colorFromHexRGB:@"e2e2e2"].CGColor;
+    _titleImage.layer.borderColor = [UIColor lightGrayColor].CGColor;
     [self.contentView addSubview:_titleImage];
     
     _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_titleImage.frame)+7, 0, 200, 40)];

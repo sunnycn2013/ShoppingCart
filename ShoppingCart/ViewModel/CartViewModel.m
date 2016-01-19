@@ -25,6 +25,14 @@
 
 #pragma mark - API Method
 
+- (NSDictionary *)mockDataFromlocal
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"cart.geojson" ofType:nil];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+    return dic;
+}
+
 - (void)fetchProduct
 {
     __weak typeof(self) weakself = self;
@@ -49,7 +57,12 @@
 
 - (void)deleteProductWithSku:(NSString *)skuNum
 {
-    
+    //通过sku删除server端数据
+}
+
+- (void)updateProductWithSku:(NSString *)skuNum
+{
+    //通过sku更新server端数据
 }
 
 - (BOOL)removeObjectAtIndexPath:(NSIndexPath *)indexPath
@@ -57,18 +70,21 @@
     BOOL result = NO;
     NSInteger section = indexPath.section;
     NSInteger index = indexPath.row;
+    
+    NSLog(@"section : %ld, index : %ld",section,index);
+    
     [(CartFloorModel *)self.list[section] removeObjectAtIndexPath:index];
     
     for (NSInteger i = 0; i < self.list.count; i++) {
         CartFloorModel *floor = self.list[i];
-        [self.list removeObjectAtIndex:i];
-
-        if (![floor count]) result = YES;
+        if (!([floor count] > 0)) {
+            [self.list removeObjectAtIndex:i];
+        }
     }
     return result;
 }
 
-- (void)removeObjectAtIndexPath:(NSIndexPath *)indexPath completionBlock:(void (^)(BOOL deleteSection))completion
+- (BOOL)removeObjectAtIndexPath:(NSIndexPath *)indexPath completionBlock:(void (^)(BOOL deleteSection))completion
 {
     NSInteger section = indexPath.section;
     NSInteger index = indexPath.row;
@@ -81,16 +97,15 @@
             completion(YES);
         }
     }
+    return YES;
 }
 
-
-
-- (NSDictionary *)mockDataFromlocal
+#pragma mark - set get Method
+- (NSInteger)productCount
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"cart.geojson" ofType:nil];
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-    return dic;
+    return self.list.count;
 }
+
+
 
 @end

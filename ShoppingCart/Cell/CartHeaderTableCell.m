@@ -24,15 +24,14 @@ static CGFloat const CartHeaderHeight = 40.0;
 @end
 @implementation CartHeaderTableCell
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self = [super initWithReuseIdentifier:reuseIdentifier];
     if (self) {
         [self setUI];
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
         _isSelected = NO;
     }
-    return  self;
+    return self;
 }
 
 - (void)setUI

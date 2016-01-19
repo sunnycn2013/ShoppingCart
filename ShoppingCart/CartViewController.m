@@ -37,7 +37,7 @@ CartTableViewCellDelegate,CartHeaderTableCellDelegate>
 - (void)initUI
 {
     [self.view addSubview:self.tablView];
-//    [self setHeader];
+    [self setHeader];
     [self setObserver];
     [self.tablView registTableViewCell];
 
@@ -109,17 +109,23 @@ CartTableViewCellDelegate,CartHeaderTableCellDelegate>
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 25)];
-    view.backgroundColor = [UIColor lightGrayColor];
-    return view;
+    UITableViewHeaderFooterView * headerView = nil;
+    id<CartFloorProtocol> floor = self.cartViewModel.list[section];
+    headerView = [tableView dequeueReusableHeaderProcessModel:floor atIndex:section];
+    return headerView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     id<CartFloorProtocol> floor = self.cartViewModel.list[indexPath.section];
-    id<CartRenderProtocol> renderModel = [floor cartModelForRowIndexPath:indexPath];
+    id<CartRenderProtocol> renderModel = [floor modelForRowAtIndexPath:indexPath];
     Class<CartProbeProtocol> cellClass = NSClassFromString([renderModel cellIdentifier]);
     return [cellClass calculateSizeWithData:renderModel];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 40.0;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -138,14 +144,8 @@ CartTableViewCellDelegate,CartHeaderTableCellDelegate>
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:indexPath.section];
-        BOOL deleteSection = [self.cartViewModel removeObjectAtIndexPath:indexPath];
-        if (deleteSection) {
-            [_tablView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
-        }else{
-            [_tablView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        }
-        [self.tablView reloadData];
+       [self.cartViewModel removeObjectAtIndexPath:indexPath];
+       [self.tablView reloadData];
     }
 }
 
@@ -165,11 +165,11 @@ CartTableViewCellDelegate,CartHeaderTableCellDelegate>
 - (UITableView *)tablView
 {
     if (!_tablView) {
-        _tablView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
+        _tablView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
         _tablView.delegate = self;
         _tablView.dataSource = self;
         _tablView.sectionFooterHeight = 0.0;
-        _tablView.sectionHeaderHeight = 10;
+        _tablView.sectionHeaderHeight = 0;
         _tablView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _tablView;

@@ -52,6 +52,5 @@
 
 #import <AFNetworking/AFNetworking.h>
 #import <AFNetworking/UIImageView+AFNetworking.h>
-#import "UIColor+RGB.h"
 
 #endif /* ShoppingCart_pch */

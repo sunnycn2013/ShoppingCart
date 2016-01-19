@@ -24,7 +24,7 @@
     self.isSelected = JSON_PARSE(dic[@"isSelected"], [NSNumber class]);
 }
 
-- (NSString *)cellIdentifier
+- (NSString *)headerIdentifier
 {
     return @"CartHeaderTableCell";
 }

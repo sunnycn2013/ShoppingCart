@@ -15,7 +15,7 @@
 - (void)cartHeader:(CartHeaderTableCell *)cartHeader didTagSelectedAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
-@interface CartHeaderTableCell : UITableViewCell<CartProbeProtocol>
+@interface CartHeaderTableCell : UITableViewHeaderFooterView<CartProbeProtocol>
 
 @property (nonatomic,weak) id<CartHeaderTableCellDelegate> delegate;
 

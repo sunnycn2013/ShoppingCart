@@ -26,7 +26,7 @@
  *
  *  @return id<CartRenderProtocol>
  */
-- (id<CartRenderProtocol>)cartModelForRowIndexPath:(NSIndexPath *)indexPath;
+- (id<CartRenderProtocol>)modelForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
  *  获取对应的NSIndexPath下对应的Model
@@ -35,6 +35,6 @@
  *
  *  @return 返回一个需要渲染的Model对象
  */
-- (id<CartRenderProtocol>)modelForRowAtIndexPath:(NSInteger)index;
+- (id<CartRenderProtocol>)modelForHeaderAtIndexPath:(NSInteger)index;
 @end
 #endif /* CartFloorProtocol_h */

@@ -42,9 +42,9 @@
     _numberFiled.textAlignment=NSTextAlignmentCenter;
     _numberFiled.keyboardType=UIKeyboardTypeNumberPad;
     _numberFiled.clipsToBounds = YES;
-    _numberFiled.layer.borderColor = [[UIColor colorFromHexRGB:@"dddddd"] CGColor];
+//    _numberFiled.layer.borderColor = [[UIColor colorFromHexRGB:@"dddddd"] CGColor];
     _numberFiled.layer.borderWidth = 0.5;
-    _numberFiled.textColor = [UIColor colorFromHexRGB:@"333333"];
+//    _numberFiled.textColor = [UIColor colorFromHexRGB:@"333333"];
     _numberFiled.font=[UIFont systemFontOfSize:13];
     _numberFiled.backgroundColor = [UIColor whiteColor];
     [self addSubview:_numberFiled];

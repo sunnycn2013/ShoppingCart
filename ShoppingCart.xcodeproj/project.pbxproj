@@ -22,9 +22,7 @@
 		B01915091C43FAC300C058A1 /* CartViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B01915081C43FAC300C058A1 /* CartViewModel.m */; };
 		B019150F1C43FB6300C058A1 /* CartHeaderTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B019150E1C43FB6300C058A1 /* CartHeaderTableCell.m */; };
 		B01915121C43FBC800C058A1 /* CartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B01915111C43FBC800C058A1 /* CartTableViewCell.m */; };
-		B05BE8401C4A0DFB00C313EB /* UIColor+RGB.m in Sources */ = {isa = PBXBuildFile; fileRef = B05BE83F1C4A0DFB00C313EB /* UIColor+RGB.m */; };
 		B05BE8431C4A11E400C313EB /* CartNumView.m in Sources */ = {isa = PBXBuildFile; fileRef = B05BE8421C4A11E400C313EB /* CartNumView.m */; };
-		B05BE8461C4A156000C313EB /* UIControl+Action.m in Sources */ = {isa = PBXBuildFile; fileRef = B05BE8451C4A156000C313EB /* UIControl+Action.m */; };
 		B05BE8491C4A5FFA00C313EB /* CartToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B05BE8481C4A5FFA00C313EB /* CartToolBarView.m */; };
 		B05BE84C1C4A62A500C313EB /* CartViewController+Balance.m in Sources */ = {isa = PBXBuildFile; fileRef = B05BE84B1C4A62A500C313EB /* CartViewController+Balance.m */; };
 		B0F67AC61C453D5200673009 /* cart.geojson in Resources */ = {isa = PBXBuildFile; fileRef = B0F67AC51C453D5200673009 /* cart.geojson */; };
@@ -67,12 +65,8 @@
 		B019150E1C43FB6300C058A1 /* CartHeaderTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartHeaderTableCell.m; sourceTree = "<group>"; };
 		B01915101C43FBC800C058A1 /* CartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartTableViewCell.h; sourceTree = "<group>"; };
 		B01915111C43FBC800C058A1 /* CartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartTableViewCell.m; sourceTree = "<group>"; };
-		B05BE83E1C4A0DFB00C313EB /* UIColor+RGB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RGB.h"; sourceTree = "<group>"; };
-		B05BE83F1C4A0DFB00C313EB /* UIColor+RGB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RGB.m"; sourceTree = "<group>"; };
 		B05BE8411C4A11E400C313EB /* CartNumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartNumView.h; sourceTree = "<group>"; };
 		B05BE8421C4A11E400C313EB /* CartNumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartNumView.m; sourceTree = "<group>"; };
-		B05BE8441C4A156000C313EB /* UIControl+Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Action.h"; sourceTree = "<group>"; };
-		B05BE8451C4A156000C313EB /* UIControl+Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Action.m"; sourceTree = "<group>"; };
 		B05BE8471C4A5FFA00C313EB /* CartToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartToolBarView.h; sourceTree = "<group>"; };
 		B05BE8481C4A5FFA00C313EB /* CartToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartToolBarView.m; sourceTree = "<group>"; };
 		B05BE84A1C4A62A500C313EB /* CartViewController+Balance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CartViewController+Balance.h"; sourceTree = "<group>"; };
@@ -155,7 +149,6 @@
 		B01914EA1C43EA5D00C058A1 /* ShoppingCart */ = {
 			isa = PBXGroup;
 			children = (
-				B05BE83D1C4A0DDD00C313EB /* Additions */,
 				37E3B4501C44DFD70048A9B7 /* API */,
 				37E3B45E1C45055D0048A9B7 /* Protocol */,
 				B01915041C43FAA000C058A1 /* Model */,
@@ -226,17 +219,6 @@
 				B01915081C43FAC300C058A1 /* CartViewModel.m */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		B05BE83D1C4A0DDD00C313EB /* Additions */ = {
-			isa = PBXGroup;
-			children = (
-				B05BE83E1C4A0DFB00C313EB /* UIColor+RGB.h */,
-				B05BE83F1C4A0DFB00C313EB /* UIColor+RGB.m */,
-				B05BE8441C4A156000C313EB /* UIControl+Action.h */,
-				B05BE8451C4A156000C313EB /* UIControl+Action.m */,
-			);
-			path = Additions;
 			sourceTree = "<group>";
 		};
 		BED883532BD03CCE32D1CA18 /* Pods */ = {
@@ -375,14 +357,12 @@
 				B01915091C43FAC300C058A1 /* CartViewModel.m in Sources */,
 				B05BE8431C4A11E400C313EB /* CartNumView.m in Sources */,
 				B05BE8491C4A5FFA00C313EB /* CartToolBarView.m in Sources */,
-				B05BE8461C4A156000C313EB /* UIControl+Action.m in Sources */,
 				B01914F31C43EA5D00C058A1 /* CartViewController.m in Sources */,
 				37B9E0811C4653F200579692 /* CartViewController+TableView.m in Sources */,
 				B05BE84C1C4A62A500C313EB /* CartViewController+Balance.m in Sources */,
 				37E3B4651C45095D0048A9B7 /* CartFloorModel.m in Sources */,
 				B01915121C43FBC800C058A1 /* CartTableViewCell.m in Sources */,
 				B01914F01C43EA5D00C058A1 /* AppDelegate.m in Sources */,
-				B05BE8401C4A0DFB00C313EB /* UIColor+RGB.m in Sources */,
 				37E3B4561C44E1C90048A9B7 /* BaseAPI.m in Sources */,
 				B01914ED1C43EA5D00C058A1 /* main.m in Sources */,
 				37E3B45D1C44F3A70048A9B7 /* CartHeaderModel.m in Sources */,

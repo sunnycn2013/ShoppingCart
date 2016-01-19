@@ -19,8 +19,8 @@
 {
     self = [super init];
     if (self) {
+        _list = [NSMutableArray array];
         [self setWithDic:dic];
-        [self setObserve];
     }
     return self;
 }
@@ -30,7 +30,6 @@
     NSDictionary *headerDic = JSON_PARSE(dic[@"head"], [NSDictionary class]);
     NSArray *skuList = JSON_PARSE(dic[@"skuList"], [NSArray class]);
     _headerModel = [[CartHeaderModel alloc] initWithDic:headerDic];
-    _list = [NSMutableArray array];
     for (NSDictionary *dic in skuList) {
         @autoreleasepool
         {
@@ -40,52 +39,29 @@
     }
 }
 
-- (void)setObserve
-{
-    [self.headerModel addObserver:self forKeyPath:@"isSelected" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
-{
-    NSNumber * oldValue = change[@"old"];
-    NSNumber * newValue = change[@"new"];
-    if ([oldValue boolValue] != [newValue boolValue]) {
-        for (int i = 0 ; i < self.list.count; i++) {
-            self.list[i].isSelected = newValue;
-        }
-    }
-}
-
 #pragma mark - CartFloorProtocol
 - (NSInteger)numberOfModelInFloor
 {
     NSInteger row = 0;
-    if(self.headerModel) row ++;
     if (self.list.count) row += self.list.count;
     
     return row;
 }
 
-- (id<CartRenderProtocol>)cartModelForRowIndexPath:(NSIndexPath *)indexPath
+- (id<CartRenderProtocol>)modelForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger index = indexPath.row;
     
-    if (self.headerModel && index == 0) {
-        return self.headerModel;
-    }
-    if (self.headerModel && index < [self numberOfModelInFloor]) {
-        return self.list[index - 1];
+    if (index < [self numberOfModelInFloor]) {
+        return self.list[index];
     }
     return nil;
 }
 
-- (id<CartRenderProtocol>)modelForRowAtIndexPath:(NSInteger)index
+- (id<CartRenderProtocol>)modelForHeaderAtIndexPath:(NSInteger)index
 {
     if (self.headerModel && index == 0) {
         return self.headerModel;
-    }
-    if (self.headerModel && index < [self numberOfModelInFloor]) {
-        return self.list[index - 1];
     }
     return nil;
 }

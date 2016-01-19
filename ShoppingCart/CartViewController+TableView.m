@@ -10,6 +10,7 @@
 #import "CartRenderProtocol.h"
 #import "CartFloorProtocol.h"
 #import "CartProbeProtocol.h"
+#import "CartHeaderTableCell.h"
 
 @implementation UITableView (tableViewCell)
 
@@ -17,6 +18,12 @@
 {
     return @{
              @"CartTableViewCell" : @"CartTableViewCell",
+             };
+}
+
+- (NSDictionary *)identifierForHeaderCells
+{
+    return @{
              @"CartHeaderTableCell":@"CartHeaderTableCell"
              };
 }
@@ -25,6 +32,10 @@
 {
     for (NSString * identifier in [self identifierForTableViewCells]) {
         [self registerClass:NSClassFromString(identifier) forCellReuseIdentifier:identifier];
+    }
+    
+    for (NSString * identifier in [self identifierForHeaderCells]) {
+        [self registerClass:NSClassFromString(identifier) forHeaderFooterViewReuseIdentifier:identifier];
     }
 }
 
@@ -39,19 +50,24 @@
 - (UITableViewCell *)dequeueReusableCellProcessModel:(id<CartFloorProtocol>)model indexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = nil;
-    id<CartRenderProtocol> renderModel = [model cartModelForRowIndexPath:indexPath];
+    id<CartRenderProtocol> renderModel = [model modelForRowAtIndexPath:indexPath];
     cell = [self dequeueReusableCellWithModel:renderModel];
     [(id<CartProbeProtocol>)cell transferData:renderModel indexPath:indexPath];
     [(id<CartProbeProtocol>)cell processData:renderModel];
     return cell;
 }
 
-- (UITableViewCell *)dequeueReusableCellTransferModel:(id<CartFloorProtocol>)model indexPath:(NSIndexPath *)indexPath
+- (UITableViewHeaderFooterView *)dequeueReusableHeaderProcessModel:(id<CartFloorProtocol>)model atIndex:(NSInteger)index
 {
-    UITableViewCell *cell = nil;
-    id<CartRenderProtocol> renderModel = [model cartModelForRowIndexPath:indexPath];
-    cell = [self dequeueReusableCellWithModel:renderModel];
-    return cell;
+    UITableViewHeaderFooterView * headerView = nil;
+    id<CartRenderProtocol> renderModel = [model modelForHeaderAtIndexPath:index];
+    headerView = [self dequeueReusableHeaderFooterViewWithIdentifier:[renderModel headerIdentifier]];
+    if (headerView == nil) {
+        headerView = [[CartHeaderTableCell alloc] initWithReuseIdentifier:[renderModel headerIdentifier]];
+    }
+    [(id<CartProbeProtocol>)headerView transferData:renderModel indexPath:nil];
+    [(id<CartProbeProtocol>)headerView processData:renderModel];
+    return headerView;
 }
 
 @end

@@ -47,7 +47,7 @@
     
     _balanceView = [UIButton buttonWithType:UIButtonTypeCustom];
     _balanceView.frame = CGRectMake(SCREEN_WIDTH - 95, 0, 80, 30);
-    _balanceView.backgroundColor=[UIColor colorFromHexRGB:@"fb5d5d"];
+    _balanceView.backgroundColor=[UIColor redColor];
     [_balanceView addTarget:self action:@selector(balanceCart:) forControlEvents:UIControlEventTouchUpInside];
     [_balanceView setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self addSubview:_balanceView];
