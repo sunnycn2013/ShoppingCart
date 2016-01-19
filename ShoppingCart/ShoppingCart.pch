@@ -11,8 +11,10 @@
 
 #define SCREEN_WIDTH          [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT         [UIScreen mainScreen].bounds.size.height
-//#define SCALE_NUM_IPHONE_6    (SCREEN_WIDTH / 375.0)
-//#define SCALE_IPHONE_6(val)   (SCALE_NUM_IPHONE_6 * val)
+#define SCALE_NUM_IPHONE_6    (SCREEN_WIDTH / 375.0)
+#define SCALE_IPHONE6(val)   (SCALE_NUM_IPHONE_6 * val)
+
+#define HALF_PX (0.5 / ([UIScreen mainScreen].scale))
 
 #define JSON_PARSE(obj,class) (([obj isKindOfClass:class]) ? obj : nil)
 
@@ -49,5 +51,7 @@
 #endif
 
 #import <AFNetworking/AFNetworking.h>
+#import <AFNetworking/UIImageView+AFNetworking.h>
+#import "UIColor+RGB.h"
 
 #endif /* ShoppingCart_pch */

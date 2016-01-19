@@ -9,11 +9,18 @@
 #import "CartFloorModel.h"
 
 @implementation CartFloorModel
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (instancetype)initWithDic:(NSDictionary *)dic
 {
     self = [super init];
     if (self) {
         [self setWithDic:dic];
+        [self setObserve];
     }
     return self;
 }
@@ -29,6 +36,22 @@
         {
             CartSkuModel * model = [[CartSkuModel alloc] initWithDic:dic];
             [_list addObject:model];
+        }
+    }
+}
+
+- (void)setObserve
+{
+    [self.headerModel addObserver:self forKeyPath:@"isSelected" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
+{
+    NSNumber * oldValue = change[@"old"];
+    NSNumber * newValue = change[@"new"];
+    if ([oldValue boolValue] != [newValue boolValue]) {
+        for (int i = 0 ; i < self.list.count; i++) {
+            self.list[i].isSelected = newValue;
         }
     }
 }

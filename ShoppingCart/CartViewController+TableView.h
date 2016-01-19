@@ -14,7 +14,7 @@
 
 - (void)registTableViewCell;
 
-- (UITableViewCell *)dequeueReusableCellWithModel:(id<CartRenderProtocol>)model;
-- (UITableViewCell *)dequeueReusableCellWithModel:(id<CartFloorProtocol>)model indexPath:(NSIndexPath *)indexPath;
+- (UITableViewCell *)dequeueReusableCellProcessModel:(id<CartFloorProtocol>)model indexPath:(NSIndexPath *)indexPath;
+- (UITableViewCell *)dequeueReusableCellTransferModel:(id<CartFloorProtocol>)model indexPath:(NSIndexPath *)indexPath;
 
 @end

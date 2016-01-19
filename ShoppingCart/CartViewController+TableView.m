@@ -36,14 +36,22 @@
     return cell;
 }
 
-- (UITableViewCell *)dequeueReusableCellWithModel:(id<CartFloorProtocol>)model indexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)dequeueReusableCellProcessModel:(id<CartFloorProtocol>)model indexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = nil;
     id<CartRenderProtocol> renderModel = [model cartModelForRowIndexPath:indexPath];
     cell = [self dequeueReusableCellWithModel:renderModel];
+    [(id<CartProbeProtocol>)cell transferData:renderModel indexPath:indexPath];
     [(id<CartProbeProtocol>)cell processData:renderModel];
     return cell;
 }
 
+- (UITableViewCell *)dequeueReusableCellTransferModel:(id<CartFloorProtocol>)model indexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = nil;
+    id<CartRenderProtocol> renderModel = [model cartModelForRowIndexPath:indexPath];
+    cell = [self dequeueReusableCellWithModel:renderModel];
+    return cell;
+}
 
 @end

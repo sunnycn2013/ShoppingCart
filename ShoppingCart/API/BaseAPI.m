@@ -49,7 +49,7 @@
                   NSDictionary *contents = [NSJSONSerialization JSONObjectWithData:responseObject
                                                                            options:NSJSONReadingMutableLeaves
                                                                             error:&error];
-                  
+                  NSLog(@"%@",contents);
                   if (_successBlock) {
                       _successBlock(@{@"content":@"1"});
                   }

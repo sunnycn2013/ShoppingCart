@@ -52,9 +52,20 @@
     
 }
 
-- (void)removeObjectAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)removeObjectAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self removeObjectAtIndexPath:indexPath completionBlock:nil];
+    BOOL result = NO;
+    NSInteger section = indexPath.section;
+    NSInteger index = indexPath.row;
+    [(CartFloorModel *)self.list[section] removeObjectAtIndexPath:index];
+    
+    for (NSInteger i = 0; i < self.list.count; i++) {
+        CartFloorModel *floor = self.list[i];
+        [self.list removeObjectAtIndex:i];
+
+        if (![floor count]) result = YES;
+    }
+    return result;
 }
 
 - (void)removeObjectAtIndexPath:(NSIndexPath *)indexPath completionBlock:(void (^)(BOOL deleteSection))completion

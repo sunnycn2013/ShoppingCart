@@ -14,6 +14,7 @@
 typedef void(^TapBlock)(NSIndexPath *indexPath);
 
 @protocol CartProbeProtocol <NSObject>
+@property (nonatomic,weak) id delegate;
 @required
 /**
  *  计算当前cell高度
@@ -27,9 +28,17 @@ typedef void(^TapBlock)(NSIndexPath *indexPath);
 /**
  *  process 数据
  *
- *  @param data 传入要渲染的数据
+ *  @param data 渲染数据
  */
 - (void)processData:(id<CartRenderProtocol>)data;
+
+/**
+ *  初始化数据
+ *
+ *  @param data      data      Entity
+ *  @param indexPath indexPath
+ */
+- (void)transferData:(id<CartRenderProtocol>)data indexPath:(NSIndexPath *)indexPath;
 
 @optional
 /**

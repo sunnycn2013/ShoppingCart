@@ -29,9 +29,8 @@
  */
 - (void)deleteProductWithSku:(NSString *)skuNum;
 
-//- (NSInteger)numberOfFloorsInModel;
-- (void)removeObjectAtIndexPath:(NSIndexPath *)indexPath;
-- (void)removeObjectAtIndexPath:(NSIndexPath *)indexPath completionBlock:(void (^)(BOOL deleteSection))completion;
+- (BOOL)removeObjectAtIndexPath:(NSIndexPath *)indexPath;
+//- (void)removeObjectAtIndexPath:(NSIndexPath *)indexPath completionBlock:(void (^)(BOOL deleteSection))completion;
 
 
 @end

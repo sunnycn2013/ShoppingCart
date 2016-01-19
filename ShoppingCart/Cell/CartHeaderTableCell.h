@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "CartProbeProtocol.h"
 
+@class CartHeaderTableCell;
+@protocol CartHeaderTableCellDelegate <NSObject>
+
+- (void)cartHeader:(CartHeaderTableCell *)cartHeader didTagSelectedAtIndexPath:(NSIndexPath *)indexPath;
+
+@end
 @interface CartHeaderTableCell : UITableViewCell<CartProbeProtocol>
+
+@property (nonatomic,weak) id<CartHeaderTableCellDelegate> delegate;
 
 @end
